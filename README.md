@@ -1,5 +1,3 @@
-# NZ EyeTV EPG auto importer
-
 ## Why
 I wanted an automated download/extract insert of EPG data for EyeTV as the EPG standard used in New Zealand
 is MHEG5 which EyeTV doesn't natively support.
