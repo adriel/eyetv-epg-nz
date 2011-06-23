@@ -7,11 +7,11 @@ There is a [plugin for EyeTV](https://github.com/tokyovigilante/EyeTVEPGParser "
 which can be used to fetch MHEG5 data from your DVB-T stream. 
 Thanks to tokyovigilante and SJB and others on Geekzone.
 
-Instructions
+Usage
 ====
-- Download the .sh script.
-- Edit the script and change any options at the top.
-- Create a cronjob for the script E.G. `30 2 * * * /dvbt/dvbt.sh` to run the script at 2:30 AM every night.
+1. Download the .sh script.
+2. Edit the script and change any options at the top.
+3. Create a cronjob for the script E.G. `30 2 * * * /dvbt/dvbt.sh` to run the script at 2:30 AM every night.
 
 EPG Feed
 ====
