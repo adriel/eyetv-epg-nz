@@ -3,9 +3,6 @@
 # Location of EyeTV
 EYETV_FILENAME="/Applications/EyeTV.app"
 
-# This locaation has to be readable/writable/executable by the user the cronjob is run as (script will return an error if it's not)
-LOCATION_OF_SCRIPT="/dvbt/"
-
 XML_GZ_URL="http://nzepg.org/freeview.xml.gz"
 GZ_FILE_NAME=$(basename "$XML_GZ_URL")
 EXTRACTED_FILE_NAME="freeview.xml"
@@ -13,6 +10,17 @@ EXTRACTED_FILE_NAME="freeview.xml"
 # 
 # Leave the rest of the script as is unless you know what your doing
 #
+
+# Determine absolute path to this script                                                                                                                                 
+LOCATION_OF_SCRIPT="`dirname $0`"
+LOCATION_OF_SCRIPT=`cd $LOCATION_OF_SCRIPT;pwd`/
+# Check this location is to be readable/writable/executable by the user this script is running as                                                                        
+if [ ! -w $LOCATION_OF_SCRIPT -o ! -x $LOCATION_OF_SCRIPT -o ! -r $LOCATION_OF_SCRIPT ]; then
+  echo "Error 0: This script must be placed in a directory that is readable, "
+  echo "writable and executable by the user running this script. The directory"
+  echo " '$LOCATION_OF_SCRIPT' is not. Exiting script"
+  exit 1
+fi
 
 if [[ ! -f "${LOCATION_OF_SCRIPT}${GZ_FILE_NAME}" ]]; then
 
